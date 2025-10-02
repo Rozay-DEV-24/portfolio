@@ -10,7 +10,6 @@ import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ParallaxBackground from './components/ParallaxBackground';
-import useScrollTracking from './hooks/useScrollTracking';
 
 const theme = createTheme({
   palette: {
@@ -30,23 +29,19 @@ const theme = createTheme({
 });
 
 function App() {
-  const { scrollY, activeSection, setActiveSection } = useScrollTracking();
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div style={{ position: 'relative', minHeight: '100vh', backgroundColor: 'white', overflowX: 'hidden' }}>
-        <ParallaxBackground scrollY={scrollY} />
-        <Navigation 
-          activeSection={activeSection} 
-          setActiveSection={setActiveSection} 
-        />
-        <Hero scrollY={scrollY} setActiveSection={setActiveSection} />
-        <About scrollY={scrollY} />
-        <Experience scrollY={scrollY} />
-        <Projects scrollY={scrollY} />
-        <Skills scrollY={scrollY} />
-        <Contact scrollY={scrollY} />
+        <ParallaxBackground />
+        <Navigation />
+        <Hero setActiveSection={() => {}} />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
         <Footer />
       </div>
     </ThemeProvider>

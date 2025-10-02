@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container, Typography, Box, LinearProgress, Card, CardContent, Grid } from '@mui/material';
 
-const Skills = ({ scrollY }) => {
-  const skills = [
+const Skills = () => {
+  const skills = useMemo(() => [
     { name: 'Python & Machine Learning', level: 95, color: '#FF6B6B' },
     { name: 'TensorFlow & PyTorch', level: 90, color: '#4ECDC4' },
     { name: 'React & JavaScript', level: 92, color: '#FFE66D' },
@@ -11,7 +11,8 @@ const Skills = ({ scrollY }) => {
     { name: 'Docker & MLOps', level: 87, color: '#B4A7D6' },
     { name: 'Data Engineering', level: 90, color: '#95E1D3' },
     { name: 'LLM Integration', level: 93, color: '#F38181' }
-  ];
+  ], []);
+
 
   return (
     <Box
@@ -26,31 +27,27 @@ const Skills = ({ scrollY }) => {
       }}
     >
       <Container maxWidth="md">
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: { xs: '3rem', md: '5rem' },
-            fontWeight: 900,
-            mb: 6,
-            textAlign: 'center',
-            color: '#B4A7D6',
-            transform: `translateY(${Math.max(-100, (scrollY - 4200) * -0.2)}px)`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 4100) / 300))
-          }}
-        >
-          Technical Skills
-        </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '3rem', md: '5rem' },
+              fontWeight: 900,
+              mb: 6,
+              textAlign: 'center',
+              color: '#B4A7D6',
+            }}
+          >
+            Technical Skills
+          </Typography>
 
         <Box sx={{ mb: 6 }}>
           {skills.map((skill, index) => (
-            <Box
-              key={index}
-              sx={{
-                mb: 4,
-                transform: `translateX(${Math.max(-100, (scrollY - 4400 - index * 50) * -0.1)}px)`,
-                opacity: Math.min(1, Math.max(0, (scrollY - 4300 - index * 50) / 200))
-              }}
-            >
+              <Box
+                key={index}
+                sx={{
+                  mb: 4,
+                }}
+              >
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                 <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#4B5563' }}>
                   {skill.name}
@@ -71,16 +68,14 @@ const Skills = ({ scrollY }) => {
                   }
                 }}
               />
-            </Box>
-          ))}
+              </Box>
+            ))}
         </Box>
 
         <Card
           sx={{
             border: '4px solid #95E1D3',
             boxShadow: 5,
-            transform: `translateY(${Math.max(-100, (scrollY - 4900) * -0.15)}px)`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 4800) / 300))
           }}
         >
           <CardContent sx={{ p: 4 }}>

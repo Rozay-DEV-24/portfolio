@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container, Typography, Box, Card, CardContent, List, ListItem, ListItemText } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const Experience = ({ scrollY }) => {
-  const experience = [
+const Experience = () => {
+  const experience = useMemo(() => [
     {
       company: 'Tavya Sportsleap Consulting',
       role: 'Machine Learning Engineer',
@@ -26,7 +26,8 @@ const Experience = ({ scrollY }) => {
       ],
       color: '#4ECDC4'
     }
-  ];
+  ], []);
+
 
   return (
     <Box
@@ -48,8 +49,6 @@ const Experience = ({ scrollY }) => {
             fontWeight: 900,
             mb: 6,
             color: '#FFE66D',
-            transform: `translateX(${Math.min(0, 200 - (scrollY - 1500) * 0.5)}px)`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 1400) / 300))
           }}
         >
           Experience
@@ -57,18 +56,17 @@ const Experience = ({ scrollY }) => {
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           {experience.map((exp, index) => (
-            <Card
-              key={index}
-              sx={{
-                border: `4px solid ${exp.color}`,
-                boxShadow: 5,
-                transform: `translateX(${index % 2 === 0 ? Math.max(-150, (scrollY - 1800 - index * 200) * -0.3) : Math.min(150, (scrollY - 1800 - index * 200) * 0.3)}px)`,
-                opacity: Math.min(1, Math.max(0, (scrollY - 1600 - index * 100) / 300)),
-                '&:hover': {
-                  boxShadow: 10,
-                }
-              }}
-            >
+              <Card
+                key={index}
+                sx={{
+                  border: `4px solid ${exp.color}`,
+                  boxShadow: 5,
+                  '&:hover': {
+                    boxShadow: 10,
+                    transform: 'scale(1.02)',
+                  }
+                }}
+              >
               <CardContent sx={{ p: 4 }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', mb: 3 }}>
                   <Box>
@@ -100,8 +98,8 @@ const Experience = ({ scrollY }) => {
                   ))}
                 </List>
               </CardContent>
-            </Card>
-          ))}
+              </Card>
+            ))}
         </Box>
       </Container>
     </Box>

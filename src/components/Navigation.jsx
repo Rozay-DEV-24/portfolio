@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemText, Box } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-const Navigation = ({ activeSection, setActiveSection }) => {
+const Navigation = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
     setIsDrawerOpen(false);
     const element = document.getElementById(sectionId);
     if (element) {
@@ -34,7 +33,7 @@ const Navigation = ({ activeSection, setActiveSection }) => {
                   textTransform: 'capitalize',
                   fontSize: '1rem',
                   fontWeight: 600,
-                  color: activeSection === item ? colors[index] : '#374151',
+                  color: '#374151',
                   '&:hover': {
                     transform: 'scale(1.1)',
                   },

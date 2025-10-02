@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Typography, Box, TextField, Button, Card, CardContent, Link } from '@mui/material';
 
-const Contact = ({ scrollY }) => {
+const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e) => {
@@ -9,6 +9,7 @@ const Contact = ({ scrollY }) => {
     alert(`Thank you for reaching out!\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
     setFormData({ name: '', email: '', message: '' });
   };
+
 
   return (
     <Box
@@ -30,8 +31,6 @@ const Contact = ({ scrollY }) => {
             mb: 6,
             textAlign: 'center',
             color: '#F38181',
-            transform: `translateY(${Math.max(-100, (scrollY - 5500) * -0.2)}px)`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 5400) / 300))
           }}
         >
           Get In Touch
@@ -42,8 +41,6 @@ const Contact = ({ scrollY }) => {
             border: '4px solid #F38181',
             boxShadow: 5,
             mb: 4,
-            transform: `translateY(${Math.max(-100, (scrollY - 5700) * -0.15)}px)`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 5600) / 300))
           }}
         >
           <CardContent sx={{ p: 5 }}>

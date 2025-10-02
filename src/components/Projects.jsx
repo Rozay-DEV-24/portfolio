@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container, Typography, Box, Card, CardContent, Grid } from '@mui/material';
 
-const Projects = ({ scrollY }) => {
-  const projects = [
+const Projects = () => {
+  const projects = useMemo(() => [
     { 
       title: 'AI Knowledge Assistant', 
       tech: 'Hugging Face, ChromaDB, Gemini API, Docker', 
@@ -39,7 +39,8 @@ const Projects = ({ scrollY }) => {
       desc: 'ML model improving facility booking accuracy by 28% with automated ETL pipelines and analytics dashboards',
       color: '#B4A7D6'
     }
-  ];
+  ], []);
+
 
   return (
     <Box
@@ -47,7 +48,8 @@ const Projects = ({ scrollY }) => {
       sx={{
         minHeight: '100vh',
         py: 10,
-        px: 2
+        px: 2,
+        minWidth: '100vw'
       }}
     >
       <Container maxWidth="lg">
@@ -59,8 +61,6 @@ const Projects = ({ scrollY }) => {
             mb: 6,
             textAlign: 'center',
             color: '#FF8B94',
-            transform: `scale(${Math.min(1.2, Math.max(0.8, 0.6 + (scrollY - 2400) / 1000))})`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 2300) / 300))
           }}
         >
           Featured Projects
@@ -68,22 +68,19 @@ const Projects = ({ scrollY }) => {
 
         <Grid container spacing={4}>
           {projects.map((project, index) => (
-            <Grid item xs={12} md={6} key={index}>
-              <Card
-                sx={{
-                  border: `4px solid ${project.color}`,
-                  height: '100%',
-                  boxShadow: 5,
-                  cursor: 'pointer',
-                  transform: `translateY(${Math.max(-200, (scrollY - 2800 - index * 150) * -0.2)}px)`,
-                  opacity: Math.min(1, Math.max(0, (scrollY - 2600 - index * 100) / 300)),
-                  '&:hover': {
-                    boxShadow: 10,
-                    transform: 'scale(1.05)',
-                  },
-                  transition: 'all 0.3s'
-                }}
-              >
+              <Grid item xs={12} md={6} key={index}>
+                <Card
+                  sx={{
+                    border: `4px solid ${project.color}`,
+                    height: '100%',
+                    boxShadow: 5,
+                    cursor: 'pointer',
+                    '&:hover': {
+                      boxShadow: 10,
+                      transform: 'scale(1.05)',
+                    }
+                  }}
+                >
                 <CardContent sx={{ p: 4 }}>
                   <Typography variant="h5" sx={{ fontWeight: 900, color: project.color, mb: 2 }}>
                     {project.title}
@@ -95,9 +92,9 @@ const Projects = ({ scrollY }) => {
                     {project.desc}
                   </Typography>
                 </CardContent>
-              </Card>
-            </Grid>
-          ))}
+                </Card>
+              </Grid>
+            ))}
         </Grid>
       </Container>
     </Box>

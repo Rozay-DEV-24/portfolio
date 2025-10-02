@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container, Typography, Box, Chip } from '@mui/material';
 
-const About = ({ scrollY }) => {
-  const tags = ['Full-Stack Development', 'Predictive Analytics', 'LLM Integration', 'MLOps', 'Cloud Deployment'];
-  const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#A8E6CF', '#FF8B94'];
+const About = () => {
+  const tags = useMemo(() => ['Full-Stack Development', 'Predictive Analytics', 'LLM Integration', 'MLOps', 'Cloud Deployment'], []);
+  const colors = useMemo(() => ['#FF6B6B', '#4ECDC4', '#FFE66D', '#A8E6CF', '#FF8B94'], []);
 
   return (
     <Box
@@ -23,9 +23,7 @@ const About = ({ scrollY }) => {
             fontSize: { xs: '3rem', md: '5rem' },
             fontWeight: 900,
             mb: 6,
-            color: '#4ECDC4',
-            transform: `translateX(${Math.min(0, -200 + (scrollY - 500) * 0.5)}px)`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 400) / 300))
+            color: '#4ECDC4'
           }}
         >
           About Me
@@ -36,9 +34,7 @@ const About = ({ scrollY }) => {
             backgroundColor: 'white',
             border: '4px solid #4ECDC4',
             p: 5,
-            boxShadow: 5,
-            transform: `translateY(${Math.max(-100, -scrollY * 0.1 + 100)}px)`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 500) / 300))
+            boxShadow: 5
           }}
         >
           <Typography variant="h6" sx={{ color: '#4B5563', mb: 3, lineHeight: 1.8 }}>

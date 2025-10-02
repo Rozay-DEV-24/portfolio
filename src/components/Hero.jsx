@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Container, Typography, Button, Box } from '@mui/material';
 
-const Hero = ({ scrollY, setActiveSection }) => {
-  const scrollToSection = (sectionId) => {
+const Hero = ({ setActiveSection }) => {
+  const scrollToSection = useCallback((sectionId) => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, [setActiveSection]);
+
 
   return (
     <Box
@@ -19,7 +20,8 @@ const Hero = ({ scrollY, setActiveSection }) => {
         alignItems: 'center',
         justifyContent: 'center',
         px: 2,
-        pt: 10
+        pt: 10,
+        position: 'relative'
       }}
     >
       <Container maxWidth="lg">
@@ -34,8 +36,6 @@ const Hero = ({ scrollY, setActiveSection }) => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              transform: `translateY(${scrollY * 0.5}px)`,
-              opacity: Math.max(0, 1 - scrollY / 500)
             }}
           >
             ML Engineer & Full-Stack Developer
@@ -49,8 +49,6 @@ const Hero = ({ scrollY, setActiveSection }) => {
               mb: 4,
               maxWidth: '800px',
               mx: 'auto',
-              transform: `translateY(${scrollY * 0.3}px)`,
-              opacity: Math.max(0, 1 - scrollY / 600)
             }}
           >
             6+ years building AI-powered tools, predictive models, and production-grade ML pipelines across sports tech, insurance, and education
@@ -63,8 +61,6 @@ const Hero = ({ scrollY, setActiveSection }) => {
               gap: 2,
               justifyContent: 'center',
               mt: 4,
-              transform: `translateY(${scrollY * 0.2}px)`,
-              opacity: Math.max(0, 1 - scrollY / 700)
             }}
           >
             <Button
