@@ -6,25 +6,47 @@ const Experience = () => {
   const experience = useMemo(() => [
     {
       company: 'Tavya Sportsleap Consulting',
-      role: 'Machine Learning Engineer',
-      period: 'Feb 2022 - Aug 2025',
+      role: 'Gen AI Engineer',
+      period: 'Feb 2024 - Aug 2025',
       highlights: [
         'Developed RAG assistant reducing lookup time by 60%',
         'Built demand forecasting models (28% accuracy improvement)',
         'Automated ETL pipelines for real-time analytics'
       ],
-      color: '#FF6B6B'
+      color: '#c9342e'
     },
     {
       company: 'Nityo Infotech Services',
-      role: 'Software Engineer (Contractor)',
+      role: 'Software Engineer',
       period: 'Jul 2021 - Jan 2024',
       highlights: [
         'Built React.js and Angular web apps for education workflows',
         'Developed mobile-first UI with React Native',
         'Optimized front-end architecture across products'
       ],
-      color: '#4ECDC4'
+      color: '#2c87db'
+    },
+    {
+      company: 'Tavya Sportsleap Consulting',
+      role: 'Software Engineer (Application & Integration)',
+      period: 'Feb 2024 - Aug 2025',
+      highlights: [
+        'Designed and launched a sports facility booking platform with Turftown, boosting online reservations by 35% and creating stable monthly revenue streams.',
+        'Worked on internal web apps using React to analyze usage patterns, supporting 30K+ users across five locations.',
+        'Consolidated data from marketing, CRM and payment APIs into a centralized reporting system, accelerating cross-department decision-making.'
+      ],
+      color: '#05e3c2'
+    },
+    {
+      company: 'Vembu Technologies',
+      role: 'Customer Acquisition',
+      period: 'Aug 2020 - Jun 2021',
+      highlights: [
+        'Drove customer acquisition for Vembu’s BDR360 (now BDRShield), a hybrid backup and disaster recovery solution.',
+        'Managed 80–100 cold calls daily to SMB and enterprise prospects, positioning solutions across backup, disaster recovery, hybrid storage, and cyber-resilience use cases.',
+        'Secured 40+ product demos with IT decision makers, achieving a 10% conversion rate from cold outreach.'
+      ],
+      color: '#84ff00'
     }
   ], []);
 
@@ -38,7 +60,7 @@ const Experience = () => {
         alignItems: 'center',
         py: 10,
         px: 2,
-        backgroundColor: '#F9FAFB'
+        backgroundColor: '#f0f0f0'
       }}
     >
       <Container maxWidth="lg">
@@ -48,7 +70,8 @@ const Experience = () => {
             fontSize: { xs: '3rem', md: '5rem' },
             fontWeight: 900,
             mb: 6,
-            color: '#FFE66D',
+            textAlign: 'center',
+            color: '#000000',
           }}
         >
           Experience

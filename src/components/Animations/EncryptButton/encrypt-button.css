@@ -1,0 +1,49 @@
+.scramble-btn {
+  --btn-fs: 1rem;      /* font-size */
+  --btn-py: 0.5rem;    /* vertical padding */
+  --btn-px: 1rem;      /* horizontal padding */
+  --btn-minw: 100px;    /* min width */
+
+  font-size: var(--btn-fs);
+  padding: var(--btn-py) var(--btn-px);
+  min-width: var(--btn-minw);
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  border: 1.5px solid rgba(212, 212, 216, 0.6);
+  background: #030303;
+  color: #fafaff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.scramble-btn:hover { color: #ffffff; } /* indigo-300 */
+.scramble-btn__content { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: .5rem; }
+
+/* the animated gradient “sheen” */
+.scramble-btn__sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: scale(1.25);
+  opacity: 0;
+  background: linear-gradient(to top,
+    rgba(129,140,248,0) 40%,
+    rgba(129,140,248,1) 50%,
+    rgba(129,140,248,0) 60%);
+  transition: opacity .25s ease;
+}
+.scramble-btn:hover .scramble-btn__sheen { opacity: 1; }
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scramble-btn__sheen { display: none; }
+}

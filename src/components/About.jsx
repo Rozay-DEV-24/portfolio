@@ -3,7 +3,7 @@ import { Container, Typography, Box, Chip } from '@mui/material';
 
 const About = () => {
   const tags = useMemo(() => ['Full-Stack Development', 'Predictive Analytics', 'LLM Integration', 'MLOps', 'Cloud Deployment'], []);
-  const colors = useMemo(() => ['#FF6B6B', '#4ECDC4', '#FFE66D', '#A8E6CF', '#FF8B94'], []);
+  const colors = useMemo(() => ['#E60000', '#00b392', '#F5C300', '#6FE600', '#2884fc'], []);
 
   return (
     <Box
@@ -23,7 +23,8 @@ const About = () => {
             fontSize: { xs: '3rem', md: '5rem' },
             fontWeight: 900,
             mb: 6,
-            color: '#4ECDC4'
+            textAlign: 'center',
+            color: '#0054db'
           }}
         >
           About Me
@@ -32,19 +33,19 @@ const About = () => {
         <Box
           sx={{
             backgroundColor: 'white',
-            border: '4px solid #4ECDC4',
+            border: '4px solid #000000',
             p: 5,
             boxShadow: 5
           }}
         >
           <Typography variant="h6" sx={{ color: '#4B5563', mb: 3, lineHeight: 1.8 }}>
-            Results-driven Software and Machine Learning Engineer with 6+ years of experience developing AI-powered tools, forecasting models, and full-stack applications. I specialize in delivering production-grade ML pipelines, intelligent systems, and data-driven solutions.
+            As a Machine Learning Engineer with a Master of Science in Information Science from the University of Arizona, I specialize in developing and deploying impactful AI solutions. My current F1 OPT status allows me to seek and accept employment in the U.S.
           </Typography>
           <Typography variant="h6" sx={{ color: '#4B5563', mb: 3, lineHeight: 1.8 }}>
-            Currently pursuing my Master's in Information Science with a Machine Learning emphasis at the University of Arizona (GPA: 3.44), I combine strong academic foundations with real-world industry experience from companies like Tavya Sportsleap, Nityo Infotech, and more.
+            In my recent role as a Gen AI Engineer, I have demonstrated my ability to deliver tangible business results. I successfully designed and deployed an internal RAG-based AI assistant that cut document lookup times by 60%. Additionally, I developed time-series forecasting models that improved facility booking accuracy by 28%. My hands-on projects, such as building a secure AI knowledge assistant and a navigation tool for the visually impaired using a Vision Language Model, further showcase my expertise in creating end-to-end AI systems.
           </Typography>
           <Typography variant="h6" sx={{ color: '#4B5563', mb: 4, lineHeight: 1.8 }}>
-            I'm passionate about leveraging data and AI to drive innovation, accessibility, and business outcomes. My expertise spans the full stack—from building RAG systems and computer vision pipelines to designing responsive UIs and deploying cloud-native solutions.
+          My background is complemented by experience as a Software Associate and Project coordinator, where I honed my skills in full-stack web and mobile development using technologies like React and .NET. I possess a strong command of Python, SQL and various Machine Learning / Larege Language Model frameworks including Sci-kit learnTensorFlow, PyTorch and Hugging Face, with practical experience on the Azure cloud platform. Combining my technical depth with a background in project coordination and customer acquisition, I am adept at translating complex requirements into robust, user-centric applications.
           </Typography>
 
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mt: 4 }}>

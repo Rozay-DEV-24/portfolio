@@ -18,8 +18,8 @@ const Contact = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        py: 10,
-        px: 2
+        // py: 10,
+        // px: 2
       }}
     >
       <Container maxWidth="md">
@@ -30,7 +30,7 @@ const Contact = () => {
             fontWeight: 900,
             mb: 6,
             textAlign: 'center',
-            color: '#F38181',
+            color: '#fc4242',
           }}
         >
           Get In Touch
@@ -38,7 +38,7 @@ const Contact = () => {
 
         <Card
           sx={{
-            border: '4px solid #F38181',
+            border: '4px solid #fc4242',
             boxShadow: 5,
             mb: 4,
           }}
@@ -87,7 +87,7 @@ const Contact = () => {
                 variant="contained"
                 size="large"
                 sx={{
-                  backgroundColor: '#F38181',
+                  backgroundColor: '#fc4242',
                   py: 2,
                   fontSize: '1.2rem',
                   fontWeight: 'bold',
@@ -114,7 +114,7 @@ const Contact = () => {
                 fontSize: '1.1rem',
                 fontFamily: 'monospace',
                 fontWeight: 'bold',
-                color: '#FF6B6B',
+                color: '#fc4242',
                 '&:hover': {
                   opacity: 0.7,
                 }

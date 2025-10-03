@@ -9,18 +9,19 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import Certifications from './components/Certifications';
 import ParallaxBackground from './components/ParallaxBackground';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FF6B6B',
+      main: '#fc4242',
     },
     secondary: {
       main: '#4ECDC4',
     },
     background: {
-      default: '#ffffff',
+      default: '#046fcc',
     },
   },
   typography: {
@@ -41,6 +42,7 @@ function App() {
         <Experience />
         <Projects />
         <Skills />
+        <Certifications />
         <Contact />
         <Footer />
       </div>

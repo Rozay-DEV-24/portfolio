@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { Container, Typography, Button, Box } from '@mui/material';
+import LiquidEther from './Animations/LiquidEther/LiquidEther';
 
 const Hero = ({ setActiveSection }) => {
   const scrollToSection = useCallback((sectionId) => {
@@ -9,7 +10,6 @@ const Hero = ({ setActiveSection }) => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }, [setActiveSection]);
-
 
   return (
     <Box
@@ -21,10 +21,42 @@ const Hero = ({ setActiveSection }) => {
         justifyContent: 'center',
         px: 2,
         pt: 10,
-        position: 'relative'
+        py: 10,
+        position: 'relative',
+        backgroundColor: '#000000',
+        overflow: 'hidden'
       }}
     >
-      <Container maxWidth="lg">
+      {/* LiquidEther Background */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1,
+          opacity: 0.6
+        }}
+      >
+        <LiquidEther
+          colors={['#FF5252', '#27C2F5', '#F5C300']}
+          mouseForce={25}
+          cursorSize={120}
+          isViscous={false}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo={true}
+          autoSpeed={0.3}
+          autoIntensity={1.8}
+          takeoverDuration={0.3}
+          autoResumeDelay={2000}
+          autoRampDuration={0.8}
+        />
+      </Box>
+
+      {/* Content Layer */}
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <Box sx={{ textAlign: 'center' }}>
           <Typography
             variant="h1"
@@ -32,26 +64,28 @@ const Hero = ({ setActiveSection }) => {
               fontSize: { xs: '3rem', md: '6rem' },
               fontWeight: 900,
               mb: 3,
-              background: 'linear-gradient(135deg, #FF6B6B, #4ECDC4, #FFE66D)',
+              background: 'linear-gradient(135deg, rgb(248, 1, 1), rgb(19, 120, 236), rgb(244, 208, 25))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
+              textShadow: '0 0 40px rgba(255,255,255,0.1)'
             }}
           >
-            ML Engineer & Full-Stack Developer
+            Gen AI Engineer & Software Developer
           </Typography>
           
           <Typography
             variant="h5"
             sx={{
-              color: '#4B5563',
+              color: '#bdd6ff',
               fontWeight: 500,
               mb: 4,
               maxWidth: '800px',
               mx: 'auto',
+              textShadow: '0 2px 10px rgba(0,0,0,0.5)'
             }}
           >
-            6+ years building AI-powered tools, predictive models, and production-grade ML pipelines across sports tech, insurance, and education
+            Building AI-powered tools, predictive models and production-grade ML pipelines across sports tech, insurance and education.
           </Typography>
 
           <Box
@@ -68,58 +102,61 @@ const Hero = ({ setActiveSection }) => {
               size="large"
               onClick={() => scrollToSection('projects')}
               sx={{
-                backgroundColor: '#FF6B6B',
+                backgroundColor: '#FF5252',
                 px: 4,
                 py: 2,
                 fontSize: '1.1rem',
                 fontWeight: 'bold',
+                borderRadius: '30px',
+                boxShadow: '0 4px 20px rgba(255, 82, 82, 0.4)',
                 '&:hover': {
-                  backgroundColor: '#FF5252',
+                  backgroundColor: '#FF6B6B',
                   transform: 'scale(1.05)',
+                  boxShadow: '0 6px 30px rgba(255, 82, 82, 0.6)',
                 }
               }}
             >
-              View Projects
+              Projects
             </Button>
             <Button
-              variant="outlined"
+              variant="contained"
               size="large"
               href="https://github.com/Rozay-DEV-24"
               target="_blank"
               sx={{
-                borderColor: '#4ECDC4',
-                color: '#4ECDC4',
-                borderWidth: 2,
+                backgroundColor: '#27C2F5',
                 px: 4,
                 py: 2,
                 fontSize: '1.1rem',
                 fontWeight: 'bold',
+                borderRadius: '30px',
+                boxShadow: '0 4px 20px rgba(39, 194, 245, 0.4)',
                 '&:hover': {
-                  borderWidth: 2,
-                  borderColor: '#4ECDC4',
+                  backgroundColor: '#93D4ED',
                   transform: 'scale(1.05)',
+                  boxShadow: '0 6px 30px rgba(39, 194, 245, 0.6)',
                 }
               }}
             >
               GitHub
             </Button>
             <Button
-              variant="outlined"
+              variant="contained"
               size="large"
               href="https://linkedin.com/in/rohit-surya-avb"
               target="_blank"
               sx={{
-                borderColor: '#FFE66D',
-                color: '#FFE66D',
-                borderWidth: 2,
+                backgroundColor: '#F5C300',
                 px: 4,
                 py: 2,
                 fontSize: '1.1rem',
                 fontWeight: 'bold',
+                borderRadius: '30px',
+                boxShadow: '0 4px 20px rgba(245, 195, 0, 0.4)',
                 '&:hover': {
-                  borderWidth: 2,
-                  borderColor: '#FFE66D',
+                  backgroundColor: '#FAD74B',
                   transform: 'scale(1.05)',
+                  boxShadow: '0 6px 30px rgba(245, 195, 0, 0.6)',
                 }
               }}
             >
