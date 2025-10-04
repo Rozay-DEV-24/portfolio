@@ -37,11 +37,12 @@ const Contact = ({ scrollY }) => {
     <Box
       id="contact"
       sx={{
-        minHeight: '100vh',
+        // minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
+        py: 8,
         px: 2,
-        backgroundColor: '#000000'
+        backgroundColor: '#000000ff'
       }}
     >
       <Container maxWidth="md">
@@ -51,7 +52,7 @@ const Contact = ({ scrollY }) => {
             sx={{
               fontSize: { xs: '3rem', md: '5rem' },
               fontWeight: 900,
-              color: '#0394fc',
+              color: '#ffffffff',
               mb: 2,
               transform: `translateY(${Math.max(-100, (scrollY - 5500) * -0.2)}px)`,
               opacity: Math.min(1, Math.max(0, (scrollY - 5400) / 300))
@@ -64,7 +65,7 @@ const Contact = ({ scrollY }) => {
             sx={{
               width: '700px',
               height: '4px',
-              backgroundColor: '#0394fc',
+              backgroundColor: '#ffffffff',
               margin: '0 auto 6rem auto',
               borderRadius: '2px',
               transform: `scaleX(${Math.min(1, Math.max(0, (scrollY - 5500) / 300))})`,
