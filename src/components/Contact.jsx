@@ -1,33 +1,37 @@
-import React, { useState } from 'react';
-import { Container, Typography, Box, TextField, Card, CardContent, Link } from '@mui/material';
-import EncryptButton from './Animations/EncryptButton/EncryptButton';
-import emailjs from '@emailjs/browser';
+import React from 'react';
+import { Container, Typography, Box, IconButton } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    emailjs.send(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
-      {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-      },
-      'YOUR_PUBLIC_KEY'
-    )
-    .then(() => {
-      alert('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
-    })
-    .catch((error) => {
-      alert('Failed to send message. Please try again.');
-      console.error(error);
-    });
-  };
+const Contact = ({ scrollY }) => {
+  const contactItems = [
+    {
+      icon: <GitHubIcon sx={{ fontSize: '4rem' }} />,
+      label: 'GitHub',
+      link: 'https://github.com/Rozay-DEV-24',
+      color: '#333333'
+    },
+    {
+      icon: <LinkedInIcon sx={{ fontSize: '4rem' }} />,
+      label: 'LinkedIn',
+      link: 'https://linkedin.com/in/rohit-surya-avb',
+      color: '#0077B5'
+    },
+    {
+      icon: <EmailIcon sx={{ fontSize: '4rem' }} />,
+      label: 'Email',
+      link: 'mailto:brohitsurya24@gmail.com',
+      color: '#EA4335'
+    },
+    {
+      icon: <PhoneIcon sx={{ fontSize: '4rem' }} />,
+      label: 'Phone',
+      link: 'tel:+15203698916',
+      color: '#34A853'
+    }
+  ];
 
   return (
     <Box
@@ -36,133 +40,109 @@ const Contact = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
+        px: 2,
         backgroundColor: '#000000'
       }}
     >
       <Container maxWidth="md">
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
+        <Box sx={{ textAlign: 'center' }}>
           <Typography
-            variant="h2"
+            variant="h4"
             sx={{
               fontSize: { xs: '3rem', md: '5rem' },
               fontWeight: 900,
               color: '#0394fc',
-              mb: 2
+              mb: 2,
+              transform: `translateY(${Math.max(-100, (scrollY - 5500) * -0.2)}px)`,
+              opacity: Math.min(1, Math.max(0, (scrollY - 5400) / 300))
             }}
           >
-            Hire Me !
+            Let's Connect!
           </Typography>
+          
           <Box
             sx={{
-              width: '400px',
+              width: '700px',
               height: '4px',
               backgroundColor: '#0394fc',
-              margin: '0 auto',
-              borderRadius: '2px'
+              margin: '0 auto 6rem auto',
+              borderRadius: '2px',
+              transform: `scaleX(${Math.min(1, Math.max(0, (scrollY - 5500) / 300))})`,
             }}
           />
-        </Box>
 
-        <Card
-          sx={{
-            border: '4px solid #ffffff',
-            boxShadow: 5,
-            mb: 4,
-          }}
-        >
-          <CardContent sx={{ p: 5 }}>
-            <form onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                label="Your Name"
-                variant="outlined"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                sx={{ mb: 3 }}
-                InputProps={{
-                  style: { fontSize: '1.1rem', fontWeight: 500 }
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: { xs: 4, md: 6 },
+              flexWrap: 'wrap',
+              transform: `translateY(${Math.max(-100, (scrollY - 5700) * -0.15)}px)`,
+              opacity: Math.min(1, Math.max(0, (scrollY - 5600) / 300))
+            }}
+          >
+            {contactItems.map((item, index) => (
+              <Box
+                key={index}
+                sx={{
+                  textAlign: 'center',
+                  transform: `translateY(${Math.max(-50, (scrollY - 5800 - index * 100) * -0.1)}px)`,
+                  opacity: Math.min(1, Math.max(0, (scrollY - 5700 - index * 50) / 200))
                 }}
-              />
-              <TextField
-                fullWidth
-                label="Your Email"
-                type="email"
-                variant="outlined"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                sx={{ mb: 3 }}
-                InputProps={{
-                  style: { fontSize: '1.1rem', fontWeight: 500 }
-                }}
-              />
-              <TextField
-                fullWidth
-                label="Your Message"
-                multiline
-                rows={6}
-                variant="outlined"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                sx={{ mb: 3 }}
-                InputProps={{
-                  style: { fontSize: '1.1rem', fontWeight: 500 }
-                }}
-              />
-              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-                <EncryptButton
-                  type="submit"
-                  variant="contained"
-                  size="large"
+              >
+                <IconButton
+                  component="a"
+                  href={item.link}
+                  target={item.link.startsWith('http') ? '_blank' : '_self'}
+                  rel={item.link.startsWith('http') ? 'noopener noreferrer' : ''}
                   sx={{
-                    py: 2,
-                    px: 6,
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
+                    width: 120,
+                    height: 120,
+                    border: `4px solid ${item.color}`,
+                    backgroundColor: 'transparent',
+                    color: item.color,
+                    mb: 2,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      backgroundColor: item.color,
+                      color: 'white',
+                      transform: 'scale(1.1)',
+                      boxShadow: `0 0 30px ${item.color}50`
+                    }
                   }}
                 >
-                  Send Message
-                </EncryptButton>
+                  {item.icon}
+                </IconButton>
+                
+                <Typography
+                  variant="h2"
+                  sx={{
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: '1.5rem'
+                  }}
+                >
+                  {item.label}
+                </Typography>
+                
+                <Typography
+                  variant="h2"
+                  sx={{
+                    color: '#888888',
+                    fontSize: '1rem',
+                    fontFamily: 'monospace',
+                    mt: 1
+                  }}
+                >
+                  {item.label === 'Email' && 'brohitsurya24@gmail.com'}
+                  {item.label === 'Phone' && '+1 (520) 369-8916'}
+                  {item.label === 'GitHub' && '@Rozay-DEV-24'}
+                  {item.label === 'LinkedIn' && '/in/rohit-surya-avb'}
+                </Typography>
               </Box>
-            </form>
-          </CardContent>
-        </Card>
-
-        <Box sx={{ textAlign: 'center' }}>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#4B5563', mb: 2 }}>
-            Or reach me directly at:
-          </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 3 }}>
-            <Link
-              href="mailto:brohitsurya24@gmail.com"
-              underline="hover"
-              sx={{
-                fontSize: '1.1rem',
-                fontFamily: 'monospace',
-                fontWeight: 'bold',
-                color: '#fc4242',
-                '&:hover': {
-                  opacity: 0.7,
-                }
-              }}
-            >
-              brohitsurya24@gmail.com
-            </Link>
-            <Link
-              href="tel:+15203698916"
-              underline="hover"
-              sx={{
-                fontSize: '1.1rem',
-                fontFamily: 'monospace',
-                fontWeight: 'bold',
-                color: '#4ECDC4',
-                '&:hover': {
-                  opacity: 0.7,
-                }
-              }}
-            >
-              +1 (520) 369-8916
-            </Link>
+            ))}
           </Box>
+
         </Box>
       </Container>
     </Box>
