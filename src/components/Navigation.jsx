@@ -28,7 +28,7 @@ const Navigation = () => {
   };
 
 
-  const menuItems = ['home', 'about', 'experience', 'projects', 'skills', 'certifications', 'contact'];
+  const menuItems = ['home', 'about', 'experience', 'projects', 'skills', 'certifications', 'HIRE ME !'];
   // const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#A8E6CF', '#FF8B94', '#B4A7D6', '#9C27B0'];
 
   return (

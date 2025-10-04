@@ -84,32 +84,45 @@ const Certifications = ({ scrollY }) => {
         minHeight: '100vh',
         py: 10,
         px: 2,
-        backgroundColor: '#F9FAFB'
+        backgroundColor: '#1F2937'
       }}
     >
       <Container maxWidth="xl" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: { xs: '3rem', md: '5rem' },
-            fontWeight: 800,
-            mb: 6,
-            textAlign: 'center',
-            color: '#263cff',
-            transform: `translateY(${Math.max(-100, (scrollY - 6000) * -0.2)}px)`,
-            opacity: Math.min(1, Math.max(0, (scrollY - 5900) / 300))
-          }}
-        >
-          Certifications
-        </Typography>
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '3rem', md: '5rem', xl: '8rem' },
+              fontWeight: 600,
+              mb: 2,
+              color: '#ffffff',
+              transform: `translateY(${Math.max(-100, (scrollY - 6000) * -0.2)}px)`,
+              opacity: Math.min(1, Math.max(0, (scrollY - 5900) / 300))
+            }}
+          >
+            Certifications
+          </Typography>
+          <Box
+            sx={{
+              width: '800px',
+              height: '4px',
+              backgroundColor: '#ffffff',
+              margin: '0 auto',
+              borderRadius: '2px',
+              transform: `translateY(${Math.max(-100, (scrollY - 6000) * -0.2)}px)`,
+              opacity: Math.min(1, Math.max(0, (scrollY - 5900) / 300))
+            }}
+          />
+        </Box>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{ justifyContent: 'center' }}>
           {certifications.map((cert, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <TiltCard maxTilt={15}>
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <TiltCard maxTilt={20}>
                 <Card
                   sx={{
                     height: '100%',
+                    width: '350px',
                     border: `4px solid ${cert.color}`,
                     boxShadow: 5,
                     transform: `translateY(${Math.max(-200, (scrollY - 6200 - index * 100) * -0.15)}px)`,
@@ -140,7 +153,16 @@ const Certifications = ({ scrollY }) => {
                     />
                   </Box>
 
-                  <CardContent sx={{ p: 3, height: 'calc(100% - 200px)', display: 'flex', flexDirection: 'column' }}>
+                  <CardContent 
+                    sx={{ 
+                      p: 3, 
+                      height: 'calc(100% - 200px)', 
+                      display: 'flex', 
+                      flexDirection: 'column',
+                      width: '350px',
+                      margin: '0 auto'
+                    }}
+                  >
                     <Typography
                       variant="h6"
                       sx={{
@@ -148,7 +170,9 @@ const Certifications = ({ scrollY }) => {
                         color: '#1F2937',
                         mb: 2,
                         lineHeight: 1.3,
-                        fontSize: '1.1rem'
+                        fontSize: '1.1rem',
+                        wordWrap: 'break-word',
+                        whiteSpace: 'normal'
                       }}
                     >
                       {cert.title}

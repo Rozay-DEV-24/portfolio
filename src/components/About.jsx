@@ -12,28 +12,39 @@ const About = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
+        backgroundColor: '#1F2937',
         py: 10,
         px: 2
       }}
     >
       <Container maxWidth="lg">
+      <Box sx={{ textAlign: 'center', mb: 6 }}>
         <Typography
           variant="h2"
           sx={{
             fontSize: { xs: '3rem', md: '5rem' },
             fontWeight: 900,
-            mb: 6,
-            textAlign: 'center',
-            color: '#0054db'
+            mb: 2,
+            color: '#ffffff'
           }}
         >
           About Me
         </Typography>
+        <Box
+          sx={{
+            width: '450px',
+            height: '4px',
+            backgroundColor: '#ffffff',
+            margin: '0 auto',
+            borderRadius: '2px'
+          }}
+        />
+      </Box>
 
         <Box
           sx={{
             backgroundColor: 'white',
-            border: '4px solid #000000',
+            border: '4px solid rgb(101, 183, 249)',
             p: 5,
             boxShadow: 5
           }}

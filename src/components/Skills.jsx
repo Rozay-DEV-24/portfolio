@@ -39,7 +39,6 @@ const Skills = () => {
     <Box
       id="skills"
       sx={{
-        // minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         py: 10,
@@ -48,18 +47,28 @@ const Skills = () => {
       }}
     >
       <Container maxWidth="md">
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: { xs: '3rem', md: '5rem' },
-            fontWeight: 900,
-            mb: 8,
-            textAlign: 'center',
-            color: '#ffc800',
-          }}
-        >
-          Skills
-        </Typography>
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '3rem', md: '5rem' },
+              fontWeight: 900,
+              mb: 2,
+              color: '#ffc800',
+            }}
+          >
+            Skills
+          </Typography>
+          <Box
+            sx={{
+              width: '250px',
+              height: '4px',
+              backgroundColor: '#ffc800',
+              margin: '0 auto',
+              borderRadius: '2px'
+            }}
+          />
+        </Box>
         
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'left' }}>
           {skills.map((skill, index) => (

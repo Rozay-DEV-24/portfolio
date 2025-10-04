@@ -1,15 +1,33 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, TextField, Button, Card, CardContent, Link } from '@mui/material';
+import { Container, Typography, Box, TextField, Card, CardContent, Link } from '@mui/material';
+import EncryptButton from './Animations/EncryptButton/EncryptButton';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you for reaching out!\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
-    setFormData({ name: '', email: '', message: '' });
+    
+    emailjs.send(
+      'YOUR_SERVICE_ID',
+      'YOUR_TEMPLATE_ID',
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      'YOUR_PUBLIC_KEY'
+    )
+    .then(() => {
+      alert('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch((error) => {
+      alert('Failed to send message. Please try again.');
+      console.error(error);
+    });
   };
-
 
   return (
     <Box
@@ -18,27 +36,36 @@ const Contact = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        // py: 10,
-        // px: 2
+        backgroundColor: '#000000'
       }}
     >
       <Container maxWidth="md">
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: { xs: '3rem', md: '5rem' },
-            fontWeight: 900,
-            mb: 6,
-            textAlign: 'center',
-            color: '#fc4242',
-          }}
-        >
-          Get In Touch
-        </Typography>
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '3rem', md: '5rem' },
+              fontWeight: 900,
+              color: '#0394fc',
+              mb: 2
+            }}
+          >
+            Hire Me !
+          </Typography>
+          <Box
+            sx={{
+              width: '400px',
+              height: '4px',
+              backgroundColor: '#0394fc',
+              margin: '0 auto',
+              borderRadius: '2px'
+            }}
+          />
+        </Box>
 
         <Card
           sx={{
-            border: '4px solid #fc4242',
+            border: '4px solid #ffffff',
             boxShadow: 5,
             mb: 4,
           }}
@@ -81,23 +108,21 @@ const Contact = () => {
                   style: { fontSize: '1.1rem', fontWeight: 500 }
                 }}
               />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                size="large"
-                sx={{
-                  backgroundColor: '#fc4242',
-                  py: 2,
-                  fontSize: '1.2rem',
-                  fontWeight: 'bold',
-                  '&:hover': {
-                    backgroundColor: '#FF6B6B',
-                  }
-                }}
-              >
-                Send Message
-              </Button>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                <EncryptButton
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    py: 2,
+                    px: 6,
+                    fontSize: '1.2rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Send Message
+                </EncryptButton>
+              </Box>
             </form>
           </CardContent>
         </Card>

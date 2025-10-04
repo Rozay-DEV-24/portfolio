@@ -60,22 +60,34 @@ const Experience = () => {
         alignItems: 'center',
         py: 10,
         px: 2,
-        backgroundColor: '#f0f0f0'
+        backgroundColor: '#000000'
       }}
     >
       <Container maxWidth="lg">
+      <Box sx={{ textAlign: 'center', mb: 6 }}>
         <Typography
           variant="h2"
           sx={{
             fontSize: { xs: '3rem', md: '5rem' },
             fontWeight: 900,
-            mb: 6,
-            textAlign: 'center',
-            color: '#000000',
+            mb: 2,
+            color: '#fc3903',
           }}
         >
           Experience
         </Typography>
+        <Box
+          sx={{
+            width: '500px',
+            height: '4px',
+            backgroundColor: '#fc3903',
+            margin: '0 auto',
+            borderRadius: '2px'
+          }}
+        />
+      </Box>
+
+        
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           {experience.map((exp, index) => (
