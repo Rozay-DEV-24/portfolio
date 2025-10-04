@@ -39,7 +39,7 @@ const Projects = () => {
       title: 'Demand Forecasting System', 
       tech: 'Python, TensorFlow, Tableau', 
       desc: 'ML model improving facility booking accuracy by 28% with automated ETL pipelines and analytics dashboards',
-      color: '#5164b0'
+      color: '#7ad100'
     }
   ], []);
 
@@ -54,7 +54,7 @@ const Projects = () => {
         minWidth: '100vw'
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Typography
           variant="h2"
           sx={{
@@ -111,7 +111,7 @@ const Projects = () => {
                       sx={{ 
                         fontWeight: 900, 
                         color: project.color, 
-                        // mb: 2,grid container
+                        mb: 2,
                         wordWrap: 'break-word',
                         whiteSpace: 'normal'
                       }}
