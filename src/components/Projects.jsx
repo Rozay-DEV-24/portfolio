@@ -5,41 +5,47 @@ import ElectricBorder from './Animations/ElectricCard/ElectricCard';
 
 const Projects = () => {
   const projects = useMemo(() => [
-    { 
-      title: 'AI Knowledge Assistant', 
-      tech: 'Hugging Face, ChromaDB, Gemini API, Docker', 
+    {
+      title: 'AI Knowledge Assistant',
+      tech: 'Hugging Face, ChromaDB, Gemini API, Docker',
       desc: 'Full-stack RAG system with secure document search, local embedding-based privacy, and streaming chat interface in vanilla JS',
-      color: '#ff9900'
+      color: '#ff9900',
+      link: 'https://github.com/yourusername/ai-knowledge-assistant'
     },
-    { 
-      title: 'Edge-AI Videometrics MVP', 
-      tech: 'YOLO, ByteTrack, FastAPI, React, Tailwind', 
+    {
+      title: 'Edge-AI Videometrics MVP',
+      tech: 'YOLO, ByteTrack, FastAPI, React, Tailwind',
       desc: 'Video analytics pipeline for racket sports with player tracking, heatmap generation, and edge-device deployment',
-      color: '#0490d6'
+      color: '#0490d6',
+      link: 'https://github.com/yourusername/edge-ai-videometrics'
     },
-    { 
-      title: 'UA Nav Access', 
-      tech: 'OCR (Tesseract), LangChain, LLaMA VLM, FastAPI', 
+    {
+      title: 'UA Nav Access',
+      tech: 'OCR (Tesseract), LangChain, LLaMA VLM, FastAPI',
       desc: 'AI-powered navigation tool for visually impaired users with building recognition and geolocation services',
-      color: '#fa1c14'
+      color: '#fa1c14',
+      link: 'https://github.com/yourusername/ua-nav-access'
     },
-    { 
-      title: 'Transformer Sentiment Classifier', 
-      tech: 'DistilRoBERTa, TensorFlow, Keras, Hugging Face', 
+    {
+      title: 'Transformer Sentiment Classifier',
+      tech: 'DistilRoBERTa, TensorFlow, Keras, Hugging Face',
       desc: 'Fine-tuned transformer model for multi-label sentiment classification with optimized F1-score evaluation',
-      color: '#e6ca30'
+      color: '#e6ca30',
+      link: 'https://github.com/yourusername/transformer-sentiment'
     },
-    { 
-      title: 'RAG Policy Assistant', 
-      tech: 'Hugging Face, ChromaDB, Gemini API', 
+    {
+      title: 'RAG Policy Assistant',
+      tech: 'Hugging Face, ChromaDB, Gemini API',
       desc: 'Reduced policy lookup time by 60% for Tavya Sportsleap with intelligent document retrieval',
-      color: '#8e50cc'
+      color: '#8e50cc',
+      link: 'https://github.com/yourusername/rag-policy-assistant'
     },
-    { 
-      title: 'Demand Forecasting System', 
-      tech: 'Python, TensorFlow, Tableau', 
+    {
+      title: 'Demand Forecasting System',
+      tech: 'Python, TensorFlow, Tableau',
       desc: 'ML model improving facility booking accuracy by 28% with automated ETL pipelines and analytics dashboards',
-      color: '#7ad100'
+      color: '#7ad100',
+      link: 'https://github.com/yourusername/demand-forecasting'
     }
   ], []);
 
@@ -88,6 +94,7 @@ const Projects = () => {
                 style={{ borderRadius: '8px' }}
               >
                 <Card
+                  onClick={() => window.open(project.link, '_blank')}
                   sx={{
                     width: '350px',
                     minHeight: '300px',

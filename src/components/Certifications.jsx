@@ -1,8 +1,11 @@
-import React from 'react';
-import { Container, Typography, Box, Card, CardContent, Grid, Chip } from '@mui/material';
+import React, { useState } from 'react';
+import { Container, Typography, Box, Card, CardContent, Grid, Chip, Dialog, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import TiltCard from './Animations/TiltCard/TiltCard';
 
 const Certifications = ({ scrollY }) => {
+  const [openImage, setOpenImage] = useState(null);
+
   const certifications = [
     {
       title: 'Oracle OCI Gen AI Professional',
@@ -77,6 +80,14 @@ const Certifications = ({ scrollY }) => {
     }
   ];
 
+  const handleOpenImage = (cert) => {
+    setOpenImage(cert);
+  };
+
+  const handleCloseImage = () => {
+    setOpenImage(null);
+  };
+
   return (
     <Box
       id="certifications"
@@ -120,6 +131,7 @@ const Certifications = ({ scrollY }) => {
             <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
               <TiltCard maxTilt={20}>
                 <Card
+                  onClick={() => handleOpenImage(cert)}
                   sx={{
                     height: '100%',
                     width: '350px',
@@ -129,7 +141,12 @@ const Certifications = ({ scrollY }) => {
                     opacity: Math.min(1, Math.max(0, (scrollY - 6100 - index * 50) / 300)),
                     transition: 'all 0.3s ease',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    '&:hover': {
+                      transform: `translateY(${Math.max(-200, (scrollY - 6200 - index * 100) * -0.15)}px) scale(1.02)`,
+                      boxShadow: 8
+                    }
                   }}
                 >
                   {/* Certificate Image */}
@@ -254,6 +271,53 @@ const Certifications = ({ scrollY }) => {
           ))}
         </Grid>
       </Container>
+
+      {/* Image Modal */}
+      <Dialog
+        open={Boolean(openImage)}
+        onClose={handleCloseImage}
+        maxWidth="lg"
+        fullWidth
+        PaperProps={{
+          sx: {
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+            overflow: 'hidden'
+          }
+        }}
+      >
+        <Box sx={{ position: 'relative', backgroundColor: '#000', p: 2 }}>
+          <IconButton
+            onClick={handleCloseImage}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8,
+              color: '#fff',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              zIndex: 1,
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.7)'
+              }
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          {openImage && (
+            <img
+              src={openImage.image}
+              alt={openImage.title}
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                maxHeight: '90vh',
+                objectFit: 'contain'
+              }}
+            />
+          )}
+        </Box>
+      </Dialog>
     </Box>
   );
 };
