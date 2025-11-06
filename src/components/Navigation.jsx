@@ -29,7 +29,7 @@ const Navigation = () => {
     <>
       <AppBar position="fixed" sx={{ backgroundColor: '#000000', boxShadow: 2 }}>
         <Toolbar>
-          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1}}>
             <Logo />
           </Box>
 

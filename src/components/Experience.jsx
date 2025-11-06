@@ -5,48 +5,60 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const Experience = () => {
   const experience = useMemo(() => [
     {
-      company: 'Tavya Sportsleap Consulting',
-      role: 'Gen AI Engineer',
-      period: 'Feb 2024 - Aug 2025',
+      company: 'Wells Fargo - New York',
+      role: 'Java Full Stack Developer',
+      period: 'Jan 2025 – Present',
       highlights: [
-        'Developed RAG assistant reducing lookup time by 60%',
-        'Built demand forecasting models (28% accuracy improvement)',
-        'Automated ETL pipelines for real-time analytics'
+      "Developed back-end systems (Spring, Hibernate) improving data management efficiency by 30%",
+      "Implemented Virtual Threads improving application performance by 30%",
+      "Used Record Patterns & Pattern Matching to reduce boilerplate code and enhance readability",
+      "Designed RESTful/GraphQL APIs (payments, refunds) reducing API response time by 35%",
+      "Used Scoped Values for efficient data sharing in concurrent threads",
+      "Refactored Spring Boot Microservices with Java 21 features for better efficiency",
+      "Migrated code to String Templates API for safer dynamic string generation",
+      "Created Spring Batch solutions handling 1M+ records daily",
+      "Leveraged Sequenced Collections API to streamline ordered data handling",
+      "Implemented multi-threading, increasing resource utilization by 20%",
+      "Managed MongoDB data solutions ensuring 99.9% availability"
       ],
-      color: '#c9342e'
+      color: '#84ff00'
     },
     {
-      company: 'Nityo Infotech Services',
+      company: 'HCL India (GE Healthcare)',
       role: 'Software Engineer',
-      period: 'Jul 2021 - Jan 2024',
+      period: 'May 2022 – Aug 2024',
       highlights: [
-        'Built React.js and Angular web apps for education workflows',
-        'Developed mobile-first UI with React Native',
-        'Optimized front-end architecture across products'
+        "Developed high-performance web apps (Core Java, Spring Boot) improving responsiveness by 30%",
+        "Used Lambda expressions, cutting processing time by 20%",
+        "Designed scalable RESTful APIs, increasing system interoperability by 25%",
+        "Applied IoC/DI patterns, reducing debugging time by 40%",
+        "Deployed on AWS (EC2, S3, RDS, etc.), reducing infrastructure costs by 15%",
+        "Implemented AWS autoscaling, reducing downtime incidents by 50%",
+        "Managed Spring transactions, resulting in zero data loss incidents",
+        "Developed Spring Batch jobs, increasing workflow efficiency by 35%"
       ],
       color: '#2c87db'
     },
     {
-      company: 'Tavya Sportsleap Consulting',
-      role: 'Software Engineer (Application & Integration)',
-      period: 'Feb 2024 - Aug 2025',
+      company: 'Larsen & Turbo Technology Services',
+      role: 'Software Engineer',
+      period: 'Sep 2018 – Apr 2022',
       highlights: [
-        'Designed and launched a sports facility booking platform with Turftown, boosting online reservations by 35% and creating stable monthly revenue streams.',
-        'Worked on internal web apps using React to analyze usage patterns, supporting 30K+ users across five locations.',
-        'Consolidated data from marketing, CRM and payment APIs into a centralized reporting system, accelerating cross-department decision-making.'
+        "Developed web applications using the Struts framework and MVC pattern",
+        "Implemented JMS for reliable messaging between distributed systems",
+        "Utilized Eclipse IDE for efficient coding, debugging, and development",
+        "Created data access layers with Hibernate DAO for Oracle integration",
+        "Implemented dynamic web content using Java Servlets and JSP tag libraries",
+        "Designed and built scalable applications with EJB to optimize performance",
+        "Employed JDBC for database connectivity and operations",
+        "Managed version control using Git for collaborative development",
+        "Conducted unit testing with Mockito to validate code functionality",
+        "Implemented Log4j for effective logging and performance monitoring",
+        "Collaborated using JIRA for project management and issue tracking",
+        "Developed SQL and PL/SQL queries to boost data performance",
+        "Integrated SOAP web services with WSDL for system communication"
       ],
       color: '#05e3c2'
-    },
-    {
-      company: 'Vembu Technologies',
-      role: 'Customer Acquisition',
-      period: 'Aug 2020 - Jun 2021',
-      highlights: [
-        'Drove customer acquisition for Vembu’s BDR360 (now BDRShield), a hybrid backup and disaster recovery solution.',
-        'Managed 80–100 cold calls daily to SMB and enterprise prospects, positioning solutions across backup, disaster recovery, hybrid storage, and cyber-resilience use cases.',
-        'Secured 40+ product demos with IT decision makers, achieving a 10% conversion rate from cold outreach.'
-      ],
-      color: '#84ff00'
     }
   ], []);
 

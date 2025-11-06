@@ -39,7 +39,8 @@ const Contact = ({ scrollY }) => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        py: 8,
+        minHeight: '100vh',
+        py: 10,
         px: 2,
         backgroundColor: '#000000',
         position: 'relative',

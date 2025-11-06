@@ -49,7 +49,7 @@ function App() {
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     </ThemeProvider>
