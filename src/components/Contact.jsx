@@ -267,7 +267,7 @@ const Contact = ({ scrollY }) => {
                   }}
                 >
                   {item.label === 'Email' && 'brohitsurya24@gmail.com'}
-                  {item.label === 'Phone' && '+1 (520) 369-8916'}
+                  {item.label === 'Phone' && '+1 469-885-5049'}
                   {item.label === 'GitHub' && '@Rozay-DEV-24'}
                   {item.label === 'LinkedIn' && '/in/rohit-surya-avb'}
                 </Typography>
