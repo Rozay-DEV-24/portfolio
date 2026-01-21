@@ -28,7 +28,7 @@ const Contact = ({ scrollY }) => {
     {
       icon: <PhoneIcon sx={{ fontSize: '4rem' }} />,
       label: 'Phone',
-      link: 'tel:+15203698916',
+      link: 'tel:+14698855049',
       color: '#34A853'
     }
   ];
